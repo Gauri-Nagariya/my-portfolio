@@ -1,0 +1,99 @@
+.thumbnail1 #small11 {
+    display: inline-block;
+    /* border: 1px solid black; */
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    vertical-align: top;
+    margin-top: 8px;
+    cursor: pointer
+}
+
+.thumbnail2 #small21 {
+    display: inline-block;
+    /* border: 1px solid black; */
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    margin-top: 8px;
+    vertical-align: top;
+    cursor: pointer
+}
+
+.thumbnail3 #small31 {
+    display: inline-block;
+    /* border: 1px solid black; */
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    margin-top: 8px;
+    vertical-align: top;
+    cursor: pointer
+}
+
+.thumbnail5 #small51 {
+    display: inline-block;
+    /* border: 1px solid black; */
+    height: 36px;
+    width: 36px;
+    margin-top: 8px;
+    border-radius: 50%;
+    vertical-align: top;
+    cursor: pointer
+}
+
+.thumbnail6 #small61 {
+    display: inline-block;
+    /* border: 1px solid black; */
+    height: 36px;
+    margin-top: 8px;
+    width: 36px;
+    border-radius: 50%;
+    vertical-align: top;
+    cursor: pointer
+}
+
+.thumbnail7 #small71 {
+    display: inline-block;
+    /* border: 1px solid black; */
+    height: 36px;
+    width: 36px;
+    margin-top: 8px;
+    border-radius: 50%;
+    vertical-align: top;
+    cursor: pointer
+}
+
+.thumbnail8 #small81 {
+    display: inline-block;
+    /* border: 1px solid black; */
+    height: 36px;
+    width: 36px;
+    margin-top: 8px;
+    border-radius: 50%;
+    vertical-align: top;
+    cursor: pointer
+}
+
+.thumbnail9 #small91 {
+    display: inline-block;
+    /* border: 1px solid black; */
+    height: 36px;
+    margin-top: 8px;
+    width: 36px;
+    border-radius: 50%;
+    vertical-align: top;
+    cursor: pointer
+}
+
+
+.thumbnail10 #small101 {
+    display: inline-block;
+    /* border: 1px solid black; */
+    height: 36px;
+    width: 36px;
+    margin-top: 8px;
+    border-radius: 50%;
+    vertical-align: top;
+    cursor: pointer
+}

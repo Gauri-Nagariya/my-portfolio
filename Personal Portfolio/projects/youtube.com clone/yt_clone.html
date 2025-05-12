@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>youtube_clone
+    </title>
+    <link rel="stylesheet" href="yt css/yt_thumbnail.css">
+    <link rel="stylesheet" href="yt css/yt_titles.css">
+    <link rel="stylesheet" href="yt css/yt_logosmall.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+
+<style>
+    * {
+        /* font-family: Arial, Helvetica, sans-serif; */
+        font-family: Roboto;
+        font-size: 14px;
+        background-color: black;
+    }
+    body{
+        margin-top: 0px;
+    }
+
+    .top-bar {
+        border: 1px solid black;
+        background-color: black;
+        width: 100%;
+        position: fixed;
+        margin-top: 0px;
+    }
+
+    #one {
+        margin-left: 12px;
+        vertical-align: top;
+        margin-top: 4px;
+        /* border: none; */
+        background-color: black;
+        border-radius: 20px;
+        border-style: solid;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        color: white;
+    }
+
+    #one:hover {
+        /* background-color: grey; */
+        background-color: rgb(48, 48, 48);
+        transition: 0.5ms;
+    }
+
+    #three {
+        height: 39px;
+        width: 39px;
+        border-radius: 20px;
+        background-color: rgb(48, 48, 48);
+        border-style: solid;
+        border: none;
+        cursor: pointer;
+        color: white;
+        margin-left: 12px;
+    }
+
+    #three:hover {
+        background-color: rgb(62, 61, 61);
+        transition: 0.5ms;
+    }
+
+    #four {
+        margin-left: 235px;
+        height: 39px;
+        width: 39px;
+        cursor: pointer;
+        border-radius: 20px;
+        border-style: solid;
+        background-color: black;
+        border: none;
+        color: white;
+    }
+
+    #four:hover {
+        background-color: rgb(48, 48, 48);
+        transition: 0.5ms;
+    }
+
+    #five {
+        height: 39px;
+        width: 39px;
+        border-radius: 20px;
+        margin-left: 15px;
+        background-color: black;
+        border-style: solid;
+        cursor: pointer;
+        border: none;
+        color: white;
+    }
+
+    #five:hover {
+        background-color: rgb(48, 48, 48);
+        transition: 0.5ms;
+    }
+
+    #six {
+        vertical-align: top;
+        font-size: 20px;
+        height: 35px;
+        width: 35px;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-top: 6px;
+        margin-left: 15px;
+        background-color: rgb(187, 56, 76);
+        border-style: solid;
+        border: none;
+        color: white;
+    }
+
+    .top-bar a {
+        display: inline-block;
+        font-size: 20px;
+        margin-top: 10px;
+        /* margin-left: 27px; */
+        color: white;
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .top-bar a img {
+        height: 24px;
+        width: 34px;
+        vertical-align: top;
+        margin-left: 6px;
+    }
+
+    .inside {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 255px;
+        height: 39px;
+        margin-top: 6px;
+        align-items: center;
+        width: 600px;
+        height: 40px;
+        margin-right: 2px;
+    }
+
+    .inside p {
+        color: white;
+        margin-top: 0px;
+        font-size: 16px;
+        background-color: rgb(48, 48, 48);
+        border: 1px solid rgb(48, 48, 48); 
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        cursor: default;
+    }
+
+    .inside input {
+        width: 520px;
+        height: 37px;
+        margin-top: 0px;
+        vertical-align: top;
+        border-bottom-left-radius: 20px;
+        border-top-left-radius: 20px;
+        background-color: black;
+        opacity: 0.9;
+        border-style: solid;
+        border: none;
+        font-size: 16px;
+        padding-left: 16px;
+        color: white;
+    }
+
+ .inside a{
+    text-decoration: none;
+    margin-left: 18px;
+    border-radius: 10px;
+ }
+
+    .options {
+        display: block;
+        margin-left: 202px;
+        border: 1px solid black;
+        margin-bottom: 0px;
+    }
+
+    .options a {
+        border: 1px solid black;
+    }
+
+    .back {
+        border: 1px solid black;
+        display: inline-block;
+        width: 1424px;
+        background-color: black;
+        margin-left: 60px;
+        margin-top: 45px; 
+    }
+
+    .both {
+        margin-top: 20px;
+        border: 1px solid black;
+    }
+
+    .both .subtitle {
+        line-height: 6px;
+        color: rgb(170, 170, 170);
+    }
+    span button{
+       /* margin-left: 10px;  */
+       background-color: black;
+       border-style: solid;
+       color: white;
+       cursor: pointer;
+    }
+
+    .side-bar {
+        display: inline-block;
+        border: 1px solid black;
+        width: 70px;
+        margin-top: 45px;
+        vertical-align: top;
+        height: 1100px;
+        position: fixed;
+    }
+
+    .side-bar button {
+        font-size: 10px;
+        color: white;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 15px;
+        margin-bottom: 1px;
+        width: 64px;
+        height: 74px;
+        border-style: solid;
+    }
+    .side-bar #subscribe{
+        padding: 0px;
+    }
+
+    .side-bar button:hover{
+        cursor: pointer;
+        border: none;
+        background-color: rgb(48, 48, 48);
+    }
+     .side-bar span{
+        font-size:30px;
+        display: block;
+        align-items: center;
+        background-color: transparent;
+}
+
+</style>
+
+<body>
+
+    <div class="top-bar">
+        <button id="one">&#9776;</button>
+        <a> <img src="pictures yt/clone.jpg" alt="">YouTube</a>
+
+        <div class="inside">
+            <p id="pehla"> <input type="text" placeholder="Search"><a href="">ok</a></p>
+        </div>
+
+        <button id="three">mic</button>
+        <button id="four">camera</button>
+        <button id="five">bell</button>
+        <button id="six">G</button>
+    </div>
+
+    <div class="both">
+
+        <div class="side-bar">
+            <button><span>&#8962;</span>Home</button><br>
+            <button><span>&#8962;</span>Shorts</button><br>
+            <button id="subscribe"><span>&#8962;</span>Subscriptions</button><br>
+            <button><span>&#8962;</span>You</button><br>
+            <button><span>&#8962;</span>Downloads</button>
+        </div>
+
+        <div class="back">
+            <div class="firstrow">
+                <div class="thumbnail1">
+                    <img id="big1" src="pictures yt/hq720.webp" alt="no display">
+
+                    <img id="small11" src="pictures yt/unnamed.jpg" alt="">
+
+                    <div id="small12">
+                        <p class="head">Impossible Things Stolen by Indian Thieves<span><button>&#8942;</button></span></p>
+                        <p class="subtitle">Slayy point</p>
+                        <p class="subtitle">9.2M views &middot; 5 months ago</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail2">
+                    <img id="big2" src="pictures yt/bab.webp" alt="no display">
+
+                    <img id="small21" src="pictures yt/unnamed (1).jpg" alt="">
+
+                    <div id="small22">
+                        <p class="head">Treasure Hunt | Badrinath and Budhdeb | Comedy Cartoon | Hindi Cartoon | TV Show | Zee Kids<span><button></button>&#8942;</button></span></p>
+                        <p class="subtitle">Zee Kids</p>
+                        <p class="subtitle">67K views &middot; 20 hours ago</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail3">
+                    <img id="big3" src="pictures yt/mjo.webp" alt="no display">
+
+                    <img id="small31" src="pictures yt/mjologo.jpg" alt="">
+
+                    <div id="small32">
+                        <p class="head">MAKE JOKE OF ||MJO|| - PAPA VS BUA 2023 || Raksha Bandhan Special By Saurabh Shukla<span><button></button>&#8942;</button></span></p>
+                        <p class="subtitle">Slayy point</p>
+                        <p class="subtitle">12,912,740 views &middot; 11 months ago</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="secondrow">
+                <div class="thumbnail5">
+                    <img id="big5" src="pictures yt/samdhish.webp" alt="no display">
+
+                    <img id="small51" src="pictures yt/samdhish logo.jpg" alt="">
+
+                    <div id="small52">
+                        <p class="head">Total Dhamaal with Arshad Warsi ft. Samdish Bhatia | Unfiltered by Samdish<span><button>&#8942;</button></span></p>
+                        <p class="subtitle">UNFILTERED by Samdish</p>
+                        <p class="subtitle">860K views &middot; 1 day ago</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail6">
+                    <img id="big6" src="pictures yt/bb.webp" alt="no display">
+
+                    <img id="small61" src="pictures yt/bblogo.jpg" alt="">
+
+                    <div id="small62">
+                        <p class="head">Dhindhora | EP 01: Lag Gayi | BB Ki Vines<span><button></button>&#8942;</button></span></p>
+                        <p class="subtitle">BB Ki Vines</p>
+                        <p class="subtitle">75M views &middot; 2 years ago</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail7">
+                    <img id="big7" src="pictures yt/best.webp" alt="no display">
+
+                    <img id="small71" src="pictures yt/di.jpg" alt="">
+
+                    <div id="small72">
+                        <p class="head">Best Of Luck Nikki | Season 1 Episode 14 | Disney India Official<span><button>&#8942;</button></span></p>
+                        <p class="subtitle">Disney India</p>
+                        <p class="subtitle">9M views &middot; 11 years ago</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="thirdrow">
+                <div class="thumbnail8">
+                    <img id="big8" src="pictures yt/akash.webp" alt="no display">
+
+                    <img id="small81" src="pictures yt/akash logo.jpg" alt="">
+
+                    <div id="small82">
+                        <p class="head">School Fight l Stand-Up Comedy l Ft. Varun Pujari #standupcomedy #hindistandup<span><button>&#8942;</button></span></p>
+                        <p class="subtitle">VP comedy shorts</p>
+                        <p class="subtitle">11K views &middot; 3 months ago</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail9">
+                    <img id="big9" src="pictures yt/dhruv.webp" alt="no display">
+
+                    <img id="small91" src="pictures yt/rathi.jpg" alt="">
+
+                    <div id="small92">
+                        <p class="head">The Mona Lisa Mystery | Why is it World's Most Famous Painting? | Dhruv Rathee<span><button>&#8942;</button></span></p>
+                        <p class="subtitle">Dhruv Rathee</p>
+                        <p class="subtitle">14M views &middot; 9 months ago</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail10">
+                    <img id="big10" src="pictures yt/filter.webp" alt="no display">
+
+                    <img id="small101" src="pictures yt/fllogo.jpg" alt="">
+
+                    <div id="small102">
+                        <p class="head">FilterCopy | Live Of  Software Engineer | Ft. @ThatsSoViraj<span><button>&#8942;</button></span></p>
+                        <p class="subtitle">FilterCopy</p>
+                        <p class="subtitle">1.9M views &middot; 1 year ago</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</head>
+</body>
+
+</html>

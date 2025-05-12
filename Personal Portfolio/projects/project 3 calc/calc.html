@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculator</title>
+  </head>
+  <style>
+    body {
+      background: linear-gradient(90deg, #032f31f7, #0e9f9f);
+    }
+    h3 {
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      font-style: italic;
+      text-align: center;
+      margin-top: 100px;
+    }
+    .cont {
+      display: inline-block;
+      margin-left: 555px;
+      margin-top: 7px;
+      height: 450px;
+      width: 400px;
+      border-radius: 25px;
+      border: none;
+    }
+
+    .cont #display {
+      margin-right: 25px;
+      margin-bottom: 25px;
+      margin-top: 30px;
+      width: 367px;
+      background-color: rgb(125, 122, 122);
+      color: #ffffff;
+      height: 55px;
+      font-size: 30px;
+      border-radius: 10px;
+      border: none;
+      padding-left: 15px;
+      padding-right: 15px;
+      background: rgba(0, 0, 0, 0.3);
+      box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .row button {
+      width: 80px;
+      height: 55px;
+      text-align: center;
+      margin: -7px 8px;
+      margin-top: 20px;
+      border-radius: 10px;
+      border: none;
+      font-size: 20px;
+      background-color: transparent;
+      color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(1px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+  <body>
+    <h3></h3>
+    <div class="cont">
+      <!-- <input   class="input-box" id="input" type="number"> -->
+      <input type="text" class="input-box" id="display" disabled />
+      <div class="row">
+        <button onclick="clearDisplay()" type="submit">AC</button>
+
+        <button onclick="Display(`%`)" type="submit">%</button>
+
+        <button onclick="Display(`<=`)" type="submit"><=</button>
+
+        <button onclick="Display(`/`)" type="submit">/</button>
+      </div>
+
+      <div class="row">
+        <button onclick="Display(`7`)" type="submit">7</button>
+
+        <button onclick="Display(`8`)" type="submit">8</button>
+
+        <button onclick="Display(`9`)" type="submit">9</button>
+
+        <button onclick="Display(`*`)" type="submit">*</button>
+      </div>
+
+      <div class="row">
+        <button onclick="Display(`4`)" type="submit">4</button>
+
+        <button onclick="Display(`5`)" type="submit">5</button>
+
+        <button onclick="Display(`6`)" type="submit">6</button>
+
+        <button onclick="Display(`-`)" type="submit">-</button>
+      </div>
+
+      <div class="row">
+        <button onclick="Display(`1`)" type="submit">1</button>
+
+        <button onclick="Display(`2`)" type="submit">2</button>
+
+        <button onclick="Display(`3`)" type="submit">3</button>
+
+        <button onclick="Display(`+`)" type="submit">+</button>
+      </div>
+
+      <div class="row">
+        <button onclick="Display(`00`)" type="submit">00</button>
+
+        <button onclick="Display(`0`)" type="submit">0</button>
+
+        <button onclick="Display(`.`)" type="submit">.</button>
+
+        <button onclick="calculate()" type="submit">=</button>
+      </div>
+    </div>
+
+    <script>
+      function Display(value) {
+        const display = document.getElementById("display");
+        display.value += value;
+      }
+
+      function clearDisplay() {
+        document.getElementById("display").value = "";
+      }
+
+      function calculate() {
+        const display = document.getElementById("display");
+        try {
+          display.value = eval(display.value);
+        } catch {
+          display.value = "Error";
+        }
+      }
+    </script>
+  </body>
+</html>

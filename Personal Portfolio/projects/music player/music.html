@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+        }
+        .spotify-container {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #181818;
+            padding: 20px;
+        }
+        .sidebar h2 {
+            color: #1DB954;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .sidebar ul li:hover {
+            background-color: #282828;
+            border-radius: 5px;
+        }
+        .player {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: opacity 0.5s ease-in-out;
+        }
+        img {
+            width: 250px;
+            height: 250px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        .control-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .control-btn:hover {
+            color: #1DB954;
+        }
+        input[type="range"] {
+            width: 80%;
+            margin-top: 10px;
+        }
+        #library-list {
+            list-style: none;
+            padding: 0;
+        }
+        #library-list li {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #282828;
+            border-radius: 5px;
+            margin: 5px 0;
+            transition: background-color 0.3s;
+        }
+        #library-list li:hover {
+            background-color: #1DB954;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="spotify-container">
+        <aside class="sidebar">
+            <h2>Music Player</h2>
+            <ul>
+                <li id="home-btn">Home</li>
+                <li id="library-btn">Library</li>
+            </ul>
+        </aside>
+        <main class="player">
+            <div id="home-screen" class="screen">
+                <img id="album-art" src="cover1.jpg" alt="Album Cover">
+                <h2 id="song-title">Song Name</h2>
+                <audio id="audio" src=""></audio>
+                <input type="range" id="progress-bar" value="0">
+                <div class="controls">
+                    <button id="prev" class="control-btn">⏮</button>
+                    <button id="play" class="control-btn">▶</button>
+                    <button id="next" class="control-btn">⏭</button>
+                </div>
+            </div>
+
+            <div id="library-screen" class="screen hidden">
+                <h2>Your Library</h2>
+                <ul id="library-list"></ul>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        const audio = document.getElementById("audio");
+        const playBtn = document.getElementById("play");
+        const prevBtn = document.getElementById("prev");
+        const nextBtn = document.getElementById("next");
+        const progressBar = document.getElementById("progress-bar");
+        const songTitle = document.getElementById("song-title");
+        const albumArt = document.getElementById("album-art");
+        const libraryList = document.getElementById("library-list");
+        const homeScreen = document.getElementById("home-screen");
+        const libraryScreen = document.getElementById("library-screen");
+        const homeBtn = document.getElementById("home-btn");
+        const libraryBtn = document.getElementById("library-btn");
+
+        const songs = [
+            { title: "Song 1", src: "song1.mp3", cover: "cover1.jpg" },
+            { title: "Song 2", src: "song2.mp3", cover: "cover2.jpg" },
+            { title: "Song 3", src: "song3.mp3", cover: "cover3.jpg" }
+        ];
+
+        let songIndex = 0;
+
+        function loadSong(index) {
+            songIndex = index;
+            audio.src = songs[index].src;
+            songTitle.textContent = songs[index].title;
+            albumArt.src = songs[index].cover;
+            audio.play();
+            playBtn.textContent = "⏸";
+        }
+
+        loadSong(songIndex);
+
+        playBtn.addEventListener("click", () => {
+            if (audio.paused) {
+                audio.play();
+                playBtn.textContent = "⏸";
+            } else {
+                audio.pause();
+                playBtn.textContent = "▶";
+            }
+        });
+
+        nextBtn.addEventListener("click", () => {
+            songIndex = (songIndex + 1) % songs.length;
+            loadSong(songIndex);
+        });
+
+        prevBtn.addEventListener("click", () => {
+            songIndex = (songIndex - 1 + songs.length) % songs.length;
+            loadSong(songIndex);
+        });
+
+        libraryBtn.addEventListener("click", () => {
+            homeScreen.classList.add("hidden");
+            libraryScreen.classList.remove("hidden");
+            libraryList.innerHTML = songs.map((song, index) => `<li onclick="playFromLibrary(${index})">${song.title}</li>`).join('');
+        });
+
+        homeBtn.addEventListener("click", () => {
+            homeScreen.classList.remove("hidden");
+            libraryScreen.classList.add("hidden");
+            loadSong(songIndex);
+        });
+
+        function playFromLibrary(index) {
+            loadSong(index);
+            homeScreen.classList.remove("hidden");
+            libraryScreen.classList.add("hidden");
+        }
+    </script>
+</body>
+</html>

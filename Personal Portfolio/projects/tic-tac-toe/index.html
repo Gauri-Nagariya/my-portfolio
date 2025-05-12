@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TIC-TAC-TOE</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .navbar {
+      background-color: black;
+      color: white;
+      height: 40px;
+      padding-left: 1vw;
+      padding-top: 1vw;
+      display: flex;
+      font-size: 20px;
+    }
+
+    .game-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 10vw);
+      grid-template-rows: repeat(3, 10vw);
+    }
+
+    .box {
+      border: 2px solid black;
+      font-size: 4vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box:hover {
+      background-color: rgb(189, 187, 187);
+      cursor: pointer;
+    }
+
+    .bl {
+      border-left: none;
+    }
+    .br {
+      border-right: none;
+    }
+    .bt {
+      border-top: none;
+    }
+    .bb {
+      border-bottom: none;
+    }
+
+    .result {
+      /* background-color: green; */
+      padding-left: 2vw;
+      width: 20vw;
+      margin-left: 2vw;
+    }
+
+    .info {
+      display: flex;
+      /* padding: 0 35px; */
+      font-size: 24px;
+    }
+
+    .result h1 {
+      padding-bottom: 20px;
+      padding-top: 20px;
+    }
+
+    img {
+      width: 0;
+      margin-top: 30px;
+      transition: width 1s ease-in-out;
+    }
+    #reset {
+      background-color: rgb(219, 159, 219);
+      color: white;
+      font-weight: bold;
+      width: 120px;
+      height: 36px;
+      border-radius: 25px;
+      border: 1px solid black;
+      margin-top: 20px;
+    }
+    #reset:hover {
+      transform: scale(1.1);
+      transition: 2ms;
+      cursor: pointer;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: repeat(3, 15vw); /* Adjust box size */
+        grid-template-rows: repeat(3, 15vw);
+      }
+      .result {
+        width: 80vw; /* Adjust result width */
+        margin-left: 0;
+        margin-top: 20px; /* Add space between game and result */
+      }
+      .game-container {
+        flex-direction: column; /* Stack container and result */
+        align-items: center; /* Center them */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        grid-template-columns: repeat(3, 20vw); /* Further adjust box size */
+        grid-template-rows: repeat(3, 20vw);
+      }
+      .result {
+        width: 90vw;
+      }
+    }
+  </style>
+  <body>
+    <nav class="navbar">
+      <p>welcome to tic-tac-toe</p>
+    </nav>
+    <div class="game-container">
+      <div class="container">
+        <div class="box bt bl"><span class="text"></span></div>
+        <div class="box bt"><span class="text"></span></div>
+        <div class="box bt br"><span class="text"></span></div>
+        <div class="box bl"><span class="text"></span></div>
+        <div class="box"><span class="text"></span></div>
+        <div class="box br"><span class="text"></span></div>
+        <div class="box bl bb"><span class="text"></span></div>
+        <div class="box bb"><span class="text"></span></div>
+        <div class="box bb br"><span class="text"></span></div>
+      </div>
+
+      <div class="result">
+        <h1>play the game!!</h1>
+        <div>
+          <span class="info">Turn for X</span>
+          <button id="reset">RESET</button>
+        </div>
+        <div class="imgbox"><img src="cat.gif" alt="" /></div>
+      </div>
+    </div>
+    <script>
+      console.log("Welcome to tic tac toe");
+      let music = new Audio("playy sound.wav");
+      let turn = "X";
+      let gameover = false;
+
+      // Function to change the turn
+      const changeTurn = () => {
+        return turn === "X" ? "0" : "X";
+      };
+
+      // Function to check for a win
+      const checkwin = () => {
+        let text = document.getElementsByClassName("text");
+        let wins = [
+          [0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8],
+          [0, 3, 6],
+          [1, 4, 7],
+          [2, 5, 8],
+          [0, 4, 8],
+          [2, 4, 6],
+        ];
+        wins.forEach((e) => {
+          if (
+            text[e[0]].innerText === text[e[1]].innerText &&
+            text[e[2]].innerText === text[e[1]].innerText &&
+            text[e[0]].innerText !== ""
+          ) {
+            document.querySelector(".info").innerText =
+              text[e[0]].innerText + " Won";
+            gameover = true;
+            document
+              .querySelector(".imgbox")
+              .getElementsByTagName("img")[0].style.width = "146px";
+          }
+        });
+      };
+
+      // Game logic
+      let boxes = document.getElementsByClassName("box");
+      Array.from(boxes).forEach((element) => {
+        let text = element.querySelector(".text");
+        element.addEventListener("click", (e) => {
+          if (text.innerText === "" && !gameover) {
+            text.innerText = turn;
+            turn = changeTurn();
+            music.play();
+            checkwin();
+            if (!gameover) {
+              document.getElementsByClassName("info")[0].innerText =
+                "Turn for " + turn;
+            }
+          }
+        });
+      });
+
+      //add onclick listener to reset button
+      reset.addEventListener("click", () => {
+        let text = document.querySelectorAll(".text");
+        Array.from(text).forEach((element) => {
+          element.innerText = "";
+        });
+        turn = "X";
+        gameover = false;
+        document.getElementsByClassName("info")[0].innerText =
+          "Turn for " + turn;
+        document
+          .querySelector(".imgbox")
+          .getElementsByTagName("img")[0].style.width = "0px";
+      });
+
+      // Set initial turn display
+      document.getElementsByClassName("info")[0].innerText = "Turn for " + turn;
+    </script>
+  </body>
+</html>

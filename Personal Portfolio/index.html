@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    html,
+    body {
+      user-select: none;
+      font-family: Arial, Helvetica, sans-serif;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(33, 33, 33);
+    }
+
+    /* --------------------------- HOME ---------------- */
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      font-size: 20px;
+      letter-spacing: 6px;
+    }
+
+    .home-body {
+      display: flex;
+      flex-flow: row;
+    }
+    .home-image img {
+      clip-path: inset(0 0 45px 0);
+      opacity: 0.4;
+      width: 560px;
+      padding-left: 60px;
+      margin-bottom: -47px;
+    }
+    .home-image {
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      margin-right: 300px;
+    }
+
+    .home {
+      color: white;
+      display: flex;
+      width: fit-content;
+      flex-flow: column;
+      margin: 300px;
+      font-size: 22px;
+      font-weight: 400;
+      height: 72px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: white;
+      padding: 5px 34px;
+      padding-top: 30px;
+      position: relative;
+      font-weight: 600;
+      transition: color 0.5s ease-in-out;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background-color: currentColor;
+      transition: width 0.5s ease-in-out;
+    }
+
+    /* Underline Expanding Effect */
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .typing {
+      color: rgb(233, 75, 17);
+      font-size: 36px;
+      font-weight: bolder;
+      overflow: hidden;
+      white-space: nowrap;
+      display: inline-block;
+      width: 0;
+      height: 50px;
+
+      animation: typing 3s steps(30, end) infinite alternate,
+        blinkCursor 0.5s infinite;
+    }
+    .animation {
+      margin-bottom: -10px;
+      height: 50px;
+      margin-top: -10px;
+    }
+
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+
+    /* --------------------------- ABOUT --------------------------- */
+
+    .page {
+      display: flex;
+      background-color: white;
+      height: 780px;
+    }
+    .image {
+      margin: 140px 100px;
+    }
+    .detail {
+      margin: 60px 100px;
+    }
+    .heading, /* about */
+    .heading2,/* project */
+    .heading3 /* skills */ {
+      letter-spacing: 8px;
+      font-size: 36px;
+      justify-content: center;
+      margin-bottom: 30px;
+      font-weight: bolder;
+      display: flex;
+      opacity: 0;
+      transform: translateY(-30px);
+      filter: blur(10px);
+      transition: opacity 0.5s ease, transform 0.9s ease, filter 0.5s ease;
+    }
+
+    /* project */
+    .heading2 {
+      color: black;
+    }
+
+    #description,
+    #Education,
+    #goal,
+    #tech,
+    #Hobbies {
+      width: 600px;
+      font-size: 20px;
+      font-weight: 500;
+      list-style: none;
+      padding-bottom: 26px;
+      word-spacing: 5px;
+    }
+    span {
+      font-weight: bold;
+    }
+
+    /* ------------------------- SKILLS  ------------------------------ */
+    #Skill {
+      color: white;
+      background-color: rgb(33, 33, 33);
+      height: 940px;
+      border: 2px solid rgb(33, 33, 33);
+    }
+
+    h1 {
+      margin-top: 60px;
+      color: white;
+      text-align: center;
+    }
+    #skills {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+    }
+    #skills .row1,
+    #skills .row2,
+    #skills .row3,
+    #skills .row4 {
+      height: 160px;
+      margin: 12px 0px;
+      display: flex;
+      justify-content: center;
+    }
+
+    #skills .row1 div,
+    #skills .row2 div,
+    #skills .row3 div,
+    #skills .row4 div {
+      width: 160px;
+      background-color: #212121;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-flow: column;
+      margin: 0px 20px;
+      box-shadow: 0px 0px 20px -3px rgb(0, 0, 0);
+      border-radius: 10px;
+    }
+    #skills .row1 div:hover,
+    #skills .row2 div:hover,
+    #skills .row3 div:hover,
+    #skills .row4 div:hover {
+      transform: scale(1.1);
+      transition: 0.3s ease-in-out;
+      box-shadow: 0px 0px 22px -5.5px rgb(80, 77, 76);
+    }
+    #html img {
+      margin-top: 10px;
+      height: 100px;
+      width: 90px;
+    }
+    #html p {
+      /* margin-bottom: 10px; */
+      padding-top: 10px;
+      font-weight: bolder;
+    }
+    #css img {
+      margin-top: 0px;
+      margin-bottom: 10px;
+      height: 100px;
+      width: 90px;
+    }
+    #css p {
+      font-weight: bolder;
+    }
+    #javascript img {
+      height: 100px;
+      width: 90px;
+    }
+    #javascript p {
+      padding-top: 10px;
+      font-weight: bolder;
+    }
+    #react img {
+      margin: 16px 0px;
+      height: 70px;
+      width: 150px;
+    }
+    #react p {
+      padding-top: 10px;
+      font-weight: bolder;
+    }
+    #Tailwind img {
+      margin: 26px 0px;
+      height: 50px;
+      width: 70px;
+    }
+    #Tailwind p {
+      font-weight: bolder;
+    }
+    #Figma img,
+    #java img {
+      margin: 16px 0px;
+      height: 70px;
+      width: 50px;
+    }
+    #Figma p {
+      font-weight: bolder;
+    }
+    #java p {
+      font-weight: bolder;
+    }
+
+    #git img {
+      height: 70px;
+      width: 70px;
+    }
+    #git p {
+      padding-top: 16px;
+      margin-bottom: 0px;
+      text-align: center;
+      font-weight: bolder;
+    }
+    #github img {
+      height: 108px;
+      width: 108px;
+    }
+    #github p {
+      margin-bottom: 18px;
+      font-weight: bolder;
+    }
+    #vscode img {
+      height: 66px;
+      width: 66px;
+      margin: 18px 0px;
+    }
+    #vscode p {
+      font-weight: bolder;
+    }
+
+    /* --------------------------- PROJECTS --------------------------------- */
+
+    #projects {
+      height: 740px;
+      background-color: white;
+      border: 2px solid white;
+    }
+
+    .cont {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, auto);
+      gap: 60px;
+      width: 800px;
+      height: 400px;
+      margin: 0px 22%;
+      margin-top: 70px;
+    }
+
+    .cont div {
+      cursor: pointer;
+      position: relative;
+      height: 200px;
+      border-radius: 20px;
+      width: 260px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .cont div:hover img {
+      transform: scale(1.2);
+      transition: 0.3s ease-in-out;
+    }
+    .cont div:hover {
+      box-shadow: 0px 0px 22px -5.5px rgb(104, 92, 88);
+    }
+    .cont div img {
+      position: absolute;
+      height: 200px;
+      width: 100%;
+      opacity: 0.8;
+    }
+
+    .overlay,
+    .overlayy {
+      
+      position: absolute;
+      height: 200px;
+      font-size: 26px;
+      font-weight: bolder;
+      display: flex;
+      text-align: justify;
+      flex-flow: column;
+      color: orangered;
+      width: 260px;
+      opacity: 0;
+      background-color: transparent;
+    }
+
+    .overlay a {
+      font-size: 18px;
+      color: black;
+      padding: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .overlayy a {
+      font-size: 18px;
+      color: black;
+      padding: 5px;
+      text-decoration: none;
+    }
+
+    .cont div:hover img {
+      opacity: 0.2;
+      transition: 0.5s;
+    }
+    .cont div:hover .overlay,
+    .cont div:hover .overlayy {
+      opacity: 1;
+      transition: 0.5s;
+    }
+
+    /* --------------------------- CERTIFICATE ----------------------------- */
+
+    .box {
+      margin-bottom: 60px;
+    }
+    .heading4 {
+      margin-top: 0px;
+      padding-top: 60px;
+      text-align: left;
+      margin-left: 40px;
+      letter-spacing: 8px;
+      font-size: 30px;
+      color: white;
+    }
+    #certificate {
+      color: white;
+      background-color: rgb(33, 33, 33);
+      padding-bottom: 80px;
+    }
+    #certificate .cert-1 {
+      width: 800px;
+      position: relative;
+      display: flex;
+      flex-flow: row;
+    }
+    #certificate .circle {
+      margin-top: 60px;
+      margin-left: 110px;
+      box-shadow: 0px 0px 20px -2px rgb(227, 161, 136);
+      background-color: rgb(207, 73, 24);
+      height: 30px;
+      width: 30px;
+      border-radius: 50px;
+    }
+    #certificate .line,
+    #certificate .line2,
+    #certificate .line3 {
+      margin-left: 124px;
+      margin-top: 20px;
+      background-color: white;
+      height: 240px;
+      width: 1.5px;
+    }
+
+    #certificate .line2 {
+      height: 256px;
+    }
+    #certificate .line3 {
+      height: 306px;
+    }
+    #certificate .cert-1 p {
+      margin-top: 60px;
+      margin-left: 20px;
+      width: 600px;
+      line-height: 30px;
+      font-size: 20px;
+    }
+    #certificate span {
+      font-size: 32px;
+      font-weight: bold;
+    }
+    #certificate .span2 {
+      font-size: 26px;
+      font-weight: 200;
+    }
+    #certificate a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    #certificate a:hover {
+      color: rgb(243, 121, 77);
+    }
+    #certificate .main-text {
+      background-color: transparent;
+    }
+
+    /* ------------------------------ CONTACT -------------------------------------- */
+
+    #contactme {
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      height: 450px;
+      background-color: rgb(33, 33, 33);
+      width: 100%;
+      display: flex;
+    }
+    .quote {
+      letter-spacing: 3px;
+      margin: -10px 0px 80px 0px;
+      color: white;
+      width: auto;
+      font-weight: bolder;
+      line-height: 25px;
+      font-size: 20px;
+    }
+    span {
+      font-size: 16px;
+    }
+    .headin {
+      height: 70px;
+      padding-bottom: 30px;
+      color: white;
+      display: flex;
+      letter-spacing: 8px;
+      font-size: 30px;
+      font-weight: bolder;
+      justify-content: center;
+      margin: 0px 0px 40px 0px;
+    }
+    .headin p {
+      background-color: rgb(33, 33, 33);
+      position: absolute;
+      padding: 0px 20px;
+    }
+
+    .list-contact {
+      display: flex;
+      flex-flow: row;
+      gap: 200px;
+      justify-content: center;
+    }
+    .list-contact a {
+      background-color: white;
+      border-radius: 40px;
+      height: 40px;
+      width: 40px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+    }
+    .list-contact a img {
+      box-shadow: 0px 0px 20px -2px rgb(111, 109, 109);
+      height: 50px;
+      border-radius: 40px;
+      width: 50px;
+      border: 2px solid black;
+    }
+    .list-contact a img:hover {
+      transform: scale(1.1);
+      transition: 0.2s ease-in-out;
+    }
+    #line-cut {
+      height: 2px;
+      width: 90%;
+      margin-top: 13px;
+      display: flex;
+      position: absolute;
+      background-color: white;
+    }
+  </style>
+  <body>
+    <nav class="nav">
+      <a href="#about">ABOUT</a>
+      <a href="#Skill">SKILLS</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#certificate">CERTIFICATIONS</a>
+      <a href="#contactme"> CONTACT</a>
+    </nav>
+
+    <div class="home-body">
+      <div class="home">
+        <p>Hey, I'm Gauri Nagariya!</p>
+        <br />
+        <div class="animation">
+          <p class="typing">
+            <!-- Frontend Developer | UI/UX Enthusiast | Problem Solver -->
+          </p>
+        </div>
+        <br />
+        <p>
+          I love building interactive and visually appealing <br />web
+          experiences using React, Tailwind CSS, <br />and JavaScript.
+          Passionate about crafting seamless <br />UI/UX designs that enhance
+          user engagement.
+        </p>
+      </div>
+      <div class="home-image">
+        <img src="images/home image.png" alt="" srcset="" />
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="page">
+        <div class="image">
+          <img src="images/about image.jpg" alt="" />
+        </div>
+        <div class="detail">
+          <div class="heading"><p>ABOUT</p></div>
+          <div id="description">
+            I am a Computer Science Engineering student at Prestige Institute of
+            Management and Research, Bhopal. My journey in tech started with a
+            love for design and web development, and over time, I have honed my
+            skills in React, Tailwind CSS, and UI/UX design.
+          </div>
+          <div id="Education">
+            <span id="edu">Education</span><br />B.Tech in Computer Science
+            Engineering (Pre-final Year)
+          </div>
+          <div id="goal">
+            <span id="carr">Career Goals & Aspirations</span><br />
+            I aspire to become a highly skilled frontend developer who can
+            create intuitive and responsive web applications. My goal is to work
+            on impactful projects and eventually start my own tech business.
+          </div>
+          <div id="tech">
+            <span id="Stack">Tech Stack & Tools</span><br />
+            Frontend: HTML, CSS, JavaScript, React, Tailwind CSS UI/UX: Figma
+            (Wireframing, Prototyping) Programming: Java, DSA Tools: Git,
+            GitHub, VS Code
+          </div>
+          <div id="Hobbies">
+            <span id="Interest">Hobbies & Interests</span><br />
+            Painting | Listening to podcasts | Traveling | Learning new
+            technologies
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="Skill">
+      <h1 class="heading3">SKILLS</h1>
+      <div id="skills">
+        <div class="row1">
+          <div id="html">
+            <img src="images/html-5.png" alt="" srcset="" />
+            <p>HTML</p>
+          </div>
+          <div id="css">
+            <img src="images/css image.png" alt="" srcset="" />
+            <p>CSS</p>
+          </div>
+          <div id="javascript">
+            <img src="images/javas4.webp" alt="" srcset="" />
+            <p>JAVASCRIPT</p>
+          </div>
+          <div id="react">
+            <img src="images/react.png" alt="" srcset="" />
+            <p>REACT</p>
+          </div>
+        </div>
+        <div class="row2">
+          <div id="Tailwind">
+            <img src="images/tailwind.jpg" alt="" srcset="" />
+            <p>TAILWIND CSS</p>
+          </div>
+          <div id="Figma">
+            <img src="images/figma.png" alt="" srcset="" />
+            <p>FIGMA</p>
+          </div>
+          <div id="java">
+            <img src="images/java.png" alt="" srcset="" />
+            <p>JAVA</p>
+          </div>
+        </div>
+        <div class="row3">
+          <div id="git">
+            <img src="images/git.png" alt="" srcset="" />
+            <p>GIT SOURCE <br />CONTROL</p>
+          </div>
+          <div id="github">
+            <img src="images/github image.png" alt="" srcset="" />
+            <p>GITHUB</p>
+          </div>
+        </div>
+        <div class="row4">
+          <div id="vscode">
+            <img src="images/vs code.png" alt="" srcset="" />
+            <p>VS CODE</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div id="projects">
+        <h1 class="heading2" id="head">PROJECTS</h1>
+        <div class="cont">
+          <div>
+            <img id="cal" src="images/calcc.jpg" alt="" />
+            <div class="overlay">
+              <p>CALCULATOR</p>
+              <a
+                href="projects/project 3 calc/calc.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Project</a
+              >
+              <a href="">GitHub</a>
+            </div>
+          </div>
+
+          <!-- <div>
+            <img src="images/superlist image.jpg" alt="" />
+            <div class="overlayy">
+              <p>SUPERLIST WEBSITE CLONE</p>
+              <a
+                href="projects/SuperList clone/superlist.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project</a
+              >
+              <a href="">GitHub</a>
+            </div>
+          </div> -->
+
+          <div>
+            <img src="images/game image.jpg" alt="" />
+            <div class="overlayy">
+              <p>TIC-TAC-TOE</p>
+              <a
+                href="projects/tic-tac-toe/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/Gauri-Nagariya/tic-tac-toe-.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
+          </div>
+
+          <div>
+            <img src="images/currency image.jpg" alt="" />
+            <div class="overlay">
+              <p>CURRENCY CONVERTER</p>
+              <a
+                href="projects/currency_converter/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/Gauri-Nagariya/Currency-converter.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
+          </div>
+
+        
+
+          <!-- <div>
+            <img src="images/yt image.jpg" alt="" />
+            <div class="overlay">
+              <p>YOUTUBE CLONE</p>
+              <a
+                href="projects/youtube.com clone/yt_clone.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/Gauri-Nagariya/Youtube-clone.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
+          </div> -->
+
+          <!-- <div>
+            <img src="images/music image.jpg" alt="" />
+            <div class="overlayy">
+              <p>MUSIC PLAYER</p>
+              <a
+                href="projects/music player/music.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project</a
+              >
+              <a href="">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </section>
+
+    <section id="certificate">
+      <div class="box">
+        <h1 class="heading4">CERTIFICATIONS</h1>
+        <div class="cert-1">
+          <div>
+            <div class="circle"></div>
+            <div class="line"></div>
+          </div>
+          <div class="main-text">
+            <p>
+              <span> Introduction to Cybersecurity <br /></span>
+              <span class="span2">Cisco </span>
+              <br /><br />Gained a foundational understanding of cybersecurity
+              concepts, including cyber threats, attack vectors, and defense
+              mechanisms. Explored the importance of network security, ethical
+              hacking, and risk management, equipping me with the knowledge to
+              identify and mitigate cyber risks.
+            </p>
+            <br />
+            <a
+              href="certificates/GauriNagariya-SKL23_TITR_CYB-certificate (1).pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Certificate</a
+            >
+          </div>
+        </div>
+        <div class="cert-1">
+          <div>
+            <div class="circle"></div>
+            <div class="line"></div>
+          </div>
+          <div class="main-text">
+            <p>
+              <span> Cybersecurity Essentials<br /></span
+              ><span class="span2">Cisco </span> <br /><br />Developed a deeper
+              understanding of core cybersecurity principles, covering
+              cryptography, endpoint protection, network security, and incident
+              response. Acquired practical skills in identifying
+              vulnerabilities, implementing security measures, and safeguarding
+              digital assets.
+            </p>
+            <br />
+            <a
+              href="certificates/GauriNagariya-SKL23_TITR_CYES-certificate.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Certificate</a
+            >
+          </div>
+        </div>
+
+        <div class="cert-1">
+          <div>
+            <div class="circle"></div>
+            <div class="line"></div>
+          </div>
+          <div class="main-text">
+            <p>
+              <span> Introduction to Modern AI <br /></span
+              ><span class="span2">Cisco </span> <br /><br />Earned the Cisco
+              Introduction to Modern AI badge, covering key AI concepts like
+              machine learning, neural networks, and real-world applications.
+              Gained insights into AI’s impact on industries, ethical
+              considerations, and its role in shaping future technologies.
+              Explored how AI improves automation, data analysis, and
+              decision-making.
+            </p>
+            <br />
+            <a
+              href="certificates/cisco_ai.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Certificate</a
+            >
+            <a
+              href="https://www.credly.com/badges/88f3cf31-c952-416b-9833-05f270a8bf66/public_url"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Badge</a
+            >
+          </div>
+        </div>
+
+        <div class="cert-1">
+          <div>
+            <div class="circle"></div>
+            <div class="line2"></div>
+          </div>
+          <div class="main-text">
+            <p>
+              <span> Microsoft Learn Student Ambassador <br /> </span>
+              <span class="span2"> Web Development Workshop </span>
+              <br /><br />Participated in a hands-on workshop focused on modern
+              web development technologies and best practices. Gained experience
+              in front-end and back-end development, responsive design, and web
+              performance optimization, enhancing my ability to create dynamic
+              and user-friendly web applications.
+            </p>
+            <br />
+            <a
+              href="certificates/microsoft _workshop.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Certificate</a
+            >
+          </div>
+        </div>
+      </div>
+      <div>
+        <h1 class="heading4">ACHIEVEMENT</h1>
+        <div class="cert-1">
+          <div>
+            <div class="circle"></div>
+            <div class="line3"></div>
+          </div>
+          <div class="main-text">
+            <p>
+              <span> Smart India Hackathon (SIH) 2024 Finalist <br /> </span>
+              <span class="span2"> UI/UX & Frontend Developer </span>
+              <br /><br />
+              Selected as a finalist in SIH 2024, contributing as a UI/UX
+              designer and frontend developer. Designed intuitive user
+              interfaces and developed responsive web components using React and
+              Tailwind CSS. Collaborated with a team to build an innovative
+              solution addressing real-world challenges, enhancing my skills in
+              problem-solving, teamwork, and agile development.
+            </p>
+            <br />
+            <a
+              href="certificates/sih certificate.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View Certificate</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contactme">
+      <div>
+        <div class="quote">
+          "The only way to do great work is to love what you do." <br /><span
+            >– Steve Jobs</span
+          >
+        </div>
+
+        <div class="headin">
+          <div id="line-cut"></div>
+          <p>CONTACT ME</p>
+        </div>
+        <div class="list-contact">
+          <a
+            href="https://www.linkedin.com/in/gauri-n-22ap4081"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img src="images/linkedin.png" alt="" srcset=""
+          /></a>
+          <a
+            href=" https://github.com/Gauri-Nagariya"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img src="images/github contact.png" alt="" srcset=""
+          /></a>
+          <a
+            id="email"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=gaurinagariya@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><img src="images/email.png" alt="" srcset=""
+          /></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- /* --------------------------- JavaScript ---------------- */ -->
+
+    <script>
+      // ---------------------------------------navbar colour effect -----------------------------------------
+      document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll(".nav a");
+
+        navLinks.forEach((link) => {
+          link.addEventListener("mouseover", function () {
+            const randomColor =
+              "#" + Math.floor(Math.random() * 16777215).toString(16);
+            this.style.color = randomColor;
+            this.style.setProperty("--random-color", randomColor);
+          });
+
+          link.addEventListener("mouseout", function () {
+            this.style.color = "white";
+          });
+        });
+      });
+
+      // ---------------------------------------- typing effect ---------------------------------------------
+
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   const skills = [
+      //     "Frontend Developer",
+      //     // "UI/UX Enthusiast",
+      //     // "Problem Solver",
+      //   ];
+      //   let index = 0;
+      //   let charIndex = 0;
+      //   const speed = 100; // Typing speed
+      //   const eraseSpeed = 50; // Erasing speed
+      //   const delayBetweenWords = 1000; // Pause before erasing
+      //   const textElement = document.querySelector(".typing");
+
+      //   function typeSkill() {
+      //     if (charIndex < skills[index].length) {
+      //       textElement.textContent += skills[index].charAt(charIndex);
+      //       charIndex++;
+      //       setTimeout(typeSkill, speed);
+      //     } else {
+      //       setTimeout(eraseSkill, delayBetweenWords);
+      //     }
+      //   }
+
+      //   function eraseSkill() {
+      //     if (charIndex > 0) {
+      //       textElement.textContent = skills[index].substring(0, charIndex - 1);
+      //       charIndex--;
+      //       setTimeout(eraseSkill, eraseSpeed);
+      //     } else {
+      //       index = (index + 1) % skills.length; // Move to next skill
+      //       setTimeout(typeSkill, speed);
+      //     }
+      //   }
+
+      //   typeSkill(); // Start animation
+      // });
+
+      const text = "Frontend Developer";
+      let index = 0;
+      let isDeleting = false;
+
+      function type() {
+        const displayText = document.querySelector(".typing");
+
+        if (!isDeleting && index < text.length) {
+          displayText.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(type, 100);
+        } else if (isDeleting && index > 0) {
+          displayText.innerHTML = text.substring(0, index - 1);
+          index--;
+          setTimeout(type, 50);
+        } else {
+          isDeleting = !isDeleting;
+          setTimeout(type, 1000);
+        }
+      }
+
+      type();
+
+      // --------------------------------text scroll effect---------------------------------------------------
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.fromTo(
+        ".heading",
+        { opacity: 0, y: -30, filter: "blur(10px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          scrollTrigger: {
+            trigger: ".heading",
+            start: "top bottom",
+            end: "top center",
+            scrub: true,
+            markers: false,
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.fromTo(
+        ".heading2",
+        { opacity: 0, y: -30, filter: "blur(10px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          scrollTrigger: {
+            trigger: ".heading2",
+            start: "top bottom",
+            end: "top center",
+            scrub: true,
+            markers: false,
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.fromTo(
+        ".heading3",
+        { opacity: 0, y: -30, filter: "blur(10px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          scrollTrigger: {
+            trigger: ".heading3",
+            start: "top bottom",
+            end: "top center",
+            scrub: true,
+            markers: false,
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+
+      //-------------------------------------------- Disable zooming with Ctrl + Scroll ----------------------------------------
+      document.addEventListener(
+        "wheel",
+        function (event) {
+          if (event.ctrlKey) {
+            event.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+
+      // Disable zooming with keyboard shortcuts
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.ctrlKey &&
+          (event.key === "+" || event.key === "-" || event.key === "0")
+        ) {
+          event.preventDefault();
+        }
+      });
+
+      // Disable zooming with pinch-to-zoom on mobile
+      document.addEventListener("gesturestart", function (event) {
+        event.preventDefault();
+      });
+      document.addEventListener("gesturechange", function (event) {
+        event.preventDefault();
+      });
+      document.addEventListener("gestureend", function (event) {
+        event.preventDefault();
+      });
+    </script>
+  </body>
+</html>
